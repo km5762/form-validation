@@ -93,6 +93,10 @@ function showPasswordError() {
 }
 
 function showConfirmPasswordError() {
+  if (confirmPassword.validity.valueMissing) {
+    confirmPasswordError.textContent = "You must re-enter your password";
+    return;
+  }
   if (confirmPassword.value !== password.value) {
     confirmPassword.setCustomValidity("Password fields must match");
     confirmPasswordError.textContent = "Password fields must match";
